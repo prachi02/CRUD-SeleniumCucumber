@@ -7,12 +7,12 @@ Given open webapp app url
 
 Scenario: Update an existing computer name
 
-Given Search for computer name "APEXCV"
+Given Search for computer name "ABC"
 Then Nothing to displayed is not shown
 When Go to that existing computer 
-And Change the computer name to APEXCVW
+And Change the computer name to ABCD
 And click on Save this computer
-Then alert message is displayed Computer APEXCVW has been updated
+Then alert message is displayed Computer ABCD has been updated
 
 
 Scenario: Update the discontinued date to wrong format

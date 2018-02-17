@@ -56,11 +56,11 @@ public class UpdatedbTest {
 		
 	}
 
-	@When("^Change the computer name to APEXCVW$")
-	public void change_the_computer_name_to_APEXCVW() throws Throwable {
+	@When("^Change the computer name to ABCD$")
+	public void change_the_computer_name_to_ABCD() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		WebElement ComputerName = driver.findElement(By.id("name"));
-		ComputerName.sendKeys(Keys.chord(Keys.CONTROL, "a"), "APEXCVW");
+		ComputerName.sendKeys(Keys.chord(Keys.CONTROL, "a"), "ABCD");
 	}
 
 	@When("^click on Save this computer$")
@@ -70,10 +70,10 @@ public class UpdatedbTest {
 		submitButton.click();
 	}
 
-	@Then("^alert message is displayed Computer APEXCVW has been updated$")
-	public void alert_message_is_displayed_Computer_APEXC_has_been_updated() throws Throwable {
+	@Then("^alert message is displayed Computer ABCD has been updated$")
+	public void alert_message_is_displayed_Computer_ABCD_has_been_updated() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		String expectedMessage = "Done! Computer APEXCVW has been updated";
+		String expectedMessage = "Done! Computer ABCD has been updated";
 		String message = driver.findElement(By.xpath("//div[contains(@class,'alert-message warning')]")).getText();
 		Assert.assertTrue(message.contains(expectedMessage));
 		System.out.println(message);
