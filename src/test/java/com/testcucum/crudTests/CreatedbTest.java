@@ -1,5 +1,6 @@
 package com.testcucum.crudTests;
 
+
 import org.junit.Assert;
 
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 
-
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -28,6 +29,10 @@ public class CreatedbTest {
 		driver  = new ChromeDriver();
 		
 		driver.get("http://computer-database.herokuapp.com/computers");
+	}
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
 	}
 
 	@When("^User click on add new computer button$")
@@ -88,7 +93,7 @@ public class CreatedbTest {
 		String message = driver.findElement(By.xpath("//div[contains(@class,'alert-message warning')]")).getText();
 		Assert.assertTrue(message.contains(expectedMessage));
 		System.out.println(message);
-		driver.quit();
+		//driver.quit();
 	}
 
 	@Given("^open webapp ie set \"(.*?)\" and \"(.*?)\"$")
@@ -130,7 +135,7 @@ public class CreatedbTest {
 	    Boolean isPresent = driver.findElements(By.xpath("//div[contains(@class,'clearfix error')]")).size() > 0;
 		System.out.println("Computer Name cannot be empty");
 		Assert.assertEquals(isPresent , true);
-		driver.quit();
+		//driver.quit();
 	}
 
 	@When("^User enters robot as name of computer$")
@@ -153,7 +158,7 @@ public class CreatedbTest {
 		    Boolean isPresent = driver.findElements(By.xpath("//div[contains(@class,'clearfix error')]")).size() > 0;
 			System.out.println("Wrong format on Introduced date");
 			Assert.assertEquals(isPresent , true);
-			driver.quit();
+			//driver.quit();
 	}
 
 }

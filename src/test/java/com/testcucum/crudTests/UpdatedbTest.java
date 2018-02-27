@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -26,6 +27,11 @@ public class UpdatedbTest {
 		driver.get("http://computer-database.herokuapp.com/computers");
 		
 	}
+	
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+	}
 
 	@Given("^Search for computer name \"(.*?)\"$")
 	public void search_for_computer_name(String arg1) throws Throwable {
@@ -42,7 +48,7 @@ public class UpdatedbTest {
 		
 		Boolean isAlertPresent = driver.findElements(By.className("well")).size() > 0;
 		Assert.assertEquals(isAlertPresent , false);
-		//driver.quit();
+		
 	}
 
 
@@ -117,7 +123,7 @@ public class UpdatedbTest {
 	    // Write code here that turns the phrase above into concrete actions
 		Boolean isClassPresent = driver.findElements(By.xpath("//div[contains(@class,'clearfix error')]")).size() > 0;
 		Assert.assertEquals(isClassPresent , true);
-		driver.quit();
+		
 	}
 
 
