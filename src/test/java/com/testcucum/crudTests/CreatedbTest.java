@@ -32,7 +32,7 @@ public class CreatedbTest {
 	}
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+
 	}
 
 	@When("^User click on add new computer button$")

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -24,6 +25,11 @@ public class DeletedbTest {
 		driver  = new ChromeDriver();
 		
 		driver.get("http://computer-database.herokuapp.com/computers");
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		//driver.quit();
 	}
 
 	@Given("^Search for the computerName \"(.*?)\"$")
@@ -71,7 +77,7 @@ public class DeletedbTest {
 	    // Write code here that turns the phrase above into concrete actions
 		WebElement alertMessage = driver.findElement(By.tagName("strong"));
 		System.out.println(alertMessage.getText());
-		driver.quit();
+		
 	}
 
 

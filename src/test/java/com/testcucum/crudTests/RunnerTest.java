@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 		//format = {"pretty","html:target/html/"},
 		//features={"src/test/resource"})
 				
-		features={"src/test/resource/CreatedbTest.feature"})
+		features={"src/test/resource/ReaddbTest.feature"})
 
 
 public class RunnerTest {

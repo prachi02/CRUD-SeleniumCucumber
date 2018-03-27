@@ -1,11 +1,13 @@
 package com.testcucum.crudTests;
 
+import java.io.File;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,10 +19,21 @@ public class ReaddbTest {
 	@Given("^navigate to application$")
 	public void navigate_to_application() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Psingh\\\\Downloads\\chromedriver_win32\\chromedriver.exe");
-		driver  = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver","C:\\Users\\Psingh\\\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		//driver  = new ChromeDriver();
+		
+		
+		File file = new File("driver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+		driver = new ChromeDriver();
 		
 		driver.get("http://computer-database.herokuapp.com/computers");
+	}
+	
+	
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
 	}
 	
 	@Given("^Read the first computer in the list$")
@@ -66,7 +79,7 @@ public class ReaddbTest {
 		String cancelFound=cancelButton.get(1).getText();
 		cancelButton.get(1).click();
 		System.out.println(cancelFound);
-		driver.quit();
+		
 	}
 
 
